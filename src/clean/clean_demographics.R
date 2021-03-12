@@ -12,7 +12,7 @@ redcap_demo
 # Scale data
 redcap_scales <- redcap %>%
   select(-c(age:sex_last_year)) %>%
-  select(record_id, starts_with("gims"), starts_with("mhi"))
+  select(record_id, starts_with("isos"), starts_with("sobbs"), starts_with("mhi"))
 redcap_scales
 
 # GENDER ------------------------------------------------------------------

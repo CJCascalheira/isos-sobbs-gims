@@ -92,4 +92,4 @@ nrow(redcap_raw) - nrow(redcap_raw_7)
 # EXPORT DATA -------------------------------------------------------------
 
 # Export
-write_csv(redcap_raw_7, path = "data/raw/redcap_complete.csv")
+write_csv(redcap_raw_7, file = "data/raw/redcap_complete.csv")
