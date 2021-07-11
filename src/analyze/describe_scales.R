@@ -7,6 +7,9 @@ library(Amelia)
 # Import
 redcap <- read_csv("data/raw/redcap_cleaned.csv")
 
+# Total
+nrow(redcap)
+
 # MISSING DATA? -----------------------------------------------------------
 
 # Are data missing completely at random (MCAR)?

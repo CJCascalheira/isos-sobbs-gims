@@ -331,4 +331,4 @@ redcap_2 <- redcap_demo_8 %>%
   left_join(redcap_scales)
 
 # Write to a file
-write_csv(redcap_2, path = "data/raw/redcap_cleaned.csv")
+write_csv(redcap_2, file = "data/raw/redcap_cleaned.csv")
