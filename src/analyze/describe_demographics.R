@@ -64,6 +64,7 @@ sex_obj_1 %>%
 
 # Sexual Orientation
 sex_obj_1 %>%
+  mutate(sex_orient = if_else(str_detect(sex_orient, regex("gay|lesbian")), "gay/lesbian", sex_orient)) %>%
   group_by(gender) %>%
   count(sex_orient) %>%
   mutate(perc = (n / sum(n)) * 100) %>%
@@ -78,6 +79,7 @@ sex_obj_1 %>%
 
 # Education
 sex_obj_1 %>%
+  mutate(education = if_else(str_detect(education, regex("high school")), "high school", education)) %>%
   group_by(gender) %>%
   count(education) %>%
   mutate(perc = (n / sum(n)) * 100) %>%
