@@ -2,6 +2,7 @@
 library(tidyverse)
 library(rio)
 library(psych)
+library(Hmisc)
 
 # Import
 redcap <- import("data/sex_obj_cleaned_Outliers_string_recoded.sav") %>%
@@ -23,6 +24,19 @@ interitem_cor
 
 # DO NOT USE APA TABLES PACKAGE---RESULTED IN INCORRECT INTERITEM CORRELATIONS BEING REPORTED
 write_csv(interitem_cor, "data/results/interitem_cor.csv")
+
+# Significance levels for correlation matrix
+interitem_cor_sig <- redcap %>%
+  select(starts_with("sobbs")) %>%
+  as.matrix() %>%
+  rcorr()
+
+# Write to file
+round(interitem_cor_sig$P, 3) %>%
+  as.data.frame() %>%
+  rownames_to_column() %>%
+  as_tibble() %>%
+  write_csv("data/results/interitem_cor_sig.csv")
 
 # SCALES AND SUBSCALES ----------------------------------------------------
 
