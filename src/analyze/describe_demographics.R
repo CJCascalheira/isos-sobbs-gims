@@ -31,6 +31,7 @@ sex_obj_1 %>%
     M = mean(age),
     SD = sd(age)
   )
+hist(sex_obj_1$age)
 
 # Hormone Status
 sex_obj_1 %>%
